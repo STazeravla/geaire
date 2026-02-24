@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigeración Espíndola | Servicio Técnico</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/3e1e81434f5e41a3d36b7da72a0be8d1?family=Helvetica+Now" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+    <nav class="nav-container">
+        <div class="logo-wrapper">
+            <img src="ER-IMG.webp" alt="Refrigeración Espíndola" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto" class="btn-contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span class="helvetica-white">Expertos en Frío.</span> <br><span class="helvetica-blue">Soluciones en el Acto.</span></h1>
+            <p>Reparación de Aires Acondicionados y Heladeras.</p>
+            <a href="https://wa.me/5491171321834" class="cta">SOLICITAR TÉCNICO</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="grid-servicios">
+            <div class="card">
+                <h3>Aires Acondicionados</h3>
+                <p>Instalación, carga de gas y mantenimiento preventivo.</p>
+            </div>
+            <div class="card">
+                <h3>Heladeras y Freezers</h3>
+                <p>Cambio de motores, termostatos y sistemas No Frost.</p>
+            </div>
+            <div class="card">
+                <h3>Línea Comercial</h3>
+                <p>Cámaras frigoríficas y heladeras vitrina.</p>
+            </div>
+            <div class="card">
+                <h3>Electricidad Domiciliaria</h3>
+                <p>Instalaciones eléctricas, tableros y mantenimiento. <strong>Técnico Matriculado.</strong></p>
+            <div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5491171321834" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <section id="contacto" class="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-container">
+        <div class="contacto-info">
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 7132-1834</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>espindolagustavoadrian@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="ER-IMG.webp" alt="Logo" class="footer-logo">
+            <p>&copy; 2026 Refrigeración Espíndola - Todos los derechos reservados.</p>
+            <p>Técnicos Matriculados en Refrigeración y Electricidad.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto 3D en Cards
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Actualizar variables CSS
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+                
+                // Calcular ángulos de rotación basados en la posición del mouse
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale(1.02)
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                card.style.setProperty('--mouse-x', '50%');
+                card.style.setProperty('--mouse-y', '50%');
+            });
+        });
+    </script>
+
+</body>
+</html>
