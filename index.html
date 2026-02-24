@@ -24,6 +24,8 @@
 </header>
 
     <section class="hero">
+        <div class="snow-container"></div>
+
         <div class="hero-content">
             <h1><span class="helvetica-white">Expertos en Frío.</span> <br><span class="helvetica-blue">Soluciones en el Acto.</span></h1>
             <p>Reparación de Aires Acondicionados y Heladeras.</p>
@@ -122,6 +124,39 @@
                 card.style.setProperty('--mouse-y', '50%');
             });
         });
+
+                // Generador de Nieve
+        function createSnowflake() {
+            const snowContainer = document.querySelector('.snow-container');
+            if(!snowContainer) return;
+
+            const snowflake = document.createElement('i');
+            snowflake.classList.add('fas', 'fa-snowflake', 'snowflake');
+            
+            // Posición horizontal aleatoria
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 15 + 10;
+            snowflake.style.fontSize = size + 'px';
+            
+            // Duración de caída aleatoria (entre 3 y 8 segundos)
+            const duration = Math.random() * 5 + 3;
+            snowflake.style.animationDuration = duration + 's';
+            
+            // Opacidad aleatoria para dar profundidad
+            snowflake.style.opacity = Math.random() * 0.3;
+
+            snowContainer.appendChild(snowflake);
+
+            // Eliminar el copo después de que termine la animación
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Crear un copo cada 200ms
+        setInterval(createSnowflake, 200);
     </script>
 
 </body>
